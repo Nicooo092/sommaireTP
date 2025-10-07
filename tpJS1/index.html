@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="calc.js"></script>
+</head>
+<body>
+    <h1>Calculatrice</h1>
+
+
+    <label>Nombre 1</label>
+    <input type="text" name="t1" id="t1" placeholder="Saissir un nombre">
+
+    <label>Nombre 2</label>
+    <input type="text" name="t2" id="t2" placeholder="Saissir un nombre">
+    
+    <br><br>
+    <button onclick="somme()" >+</button>
+    <button onclick="soustraction()" >-</button>
+    <button onclick="multiplication()" >*</button>
+    <button onclick="diviser()" >/</button>
+
+    <br><br>
+    <button onclick="permute()" >Permutation</button>
+    <button onclick="pair()" >Pair/Impair</button>
+    <button onclick="reset()" >Reset</button>
+
+    <br><br>
+    <label>Résultat</label>
+    <input type="text" name="t3" id="t3" placeholder="Résultat" readonly>
+    <label>Résultat Pair/Impair</label>
+    <input type="text" name="t4" id="t4" placeholder="Parité" readonly>
+
+</body>
+</html>
