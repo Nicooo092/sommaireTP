@@ -1,0 +1,11 @@
+.test{
+    background: url("bmwm3cs.jpg") no-repeat center/cover;
+    height: 90vh;
+}
+h1{
+    color: rgb(255, 255, 255);
+    
+}
+p{
+    color: rgb(52, 37, 52);
+}
