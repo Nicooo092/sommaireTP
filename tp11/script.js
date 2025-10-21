@@ -24,6 +24,7 @@ function calcul_moyenne() {
     else
 
         document.write("Admis - très bien");
+    document.write('<br><button onclick="location.reload()">Menu principal</button>');
 }
 
 
@@ -44,6 +45,7 @@ function test_temp() {
         document.bgColor="red";
     
     }
+    document.write('<br><button onclick="location.reload()">Menu principal</button>');
 }
 
 
@@ -60,6 +62,8 @@ var b = prompt("Entrez le deuxième nombre :");
     } else {
         document.write("Les nombres sont égaux : " + a);
 }
+    document.write('<br><button onclick="location.reload()">Menu principal</button>');
+
 }
 
 
@@ -82,4 +86,5 @@ function aleatoire() {
     document.write("<h2>" + message + "</h2>");
     document.write("<p>Nombre secret : " + a + "</p>");
     document.write("<p>Nombre saisi : " + b + "</p>");
+    document.write('<br><button onclick="location.reload()">Menu principal</button>');
 }
