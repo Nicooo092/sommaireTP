@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+h1 {
+    color: #e0e0e0;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 3rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #3a3a3a;
+}
+
+table:first-child {
+    flex: 2;
+    min-width: 300px;
+}
+
+table:last-child {
+    flex: 1;
+    min-width: 250px;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td[align="left"] {
+    border-right: 1px solid #3a3a3a;
+    font-weight: 500;
+    color: #b0b0b0;
+    width: 40%;
+}
+
+td[align="right"] {
+    background: #242424;
+    width: 60%;
+}
+
+a {
+    color: #8b9dc3;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    padding: 0.5rem 1rem 0.5rem 0;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0.3rem;
+    left: 0;
+    background: linear-gradient(90deg, #8b9dc3, #a8b9d8);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+    color: #a8b9d8;
+    transform: translateX(8px);
+    letter-spacing: 0.5px;
+}
+
+a:hover::after {
+    width: calc(100% - 1rem);
+}
+
+tr {
+    transition: background-color 0.3s ease;
+}
+
+tr:hover td {
+    background-color: #333333;
+}
+
+@media (max-width: 1024px) {
+    .center {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    table {
+        width: 90%;
+    }
+    
+    table:first-child,
+    table:last-child {
+        flex: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    a:hover {
+        transform: translateX(5px);
+    }
+}
