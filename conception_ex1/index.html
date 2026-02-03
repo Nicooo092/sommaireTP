@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conception - Exercice 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Conception : Exercice 1</h1>
+
+        <div class="grid-content">
+            <!-- Left Column: MCD & PDF -->
+            <div class="column">
+                <!-- MCD Image (Top Half) -->
+                <div class="card" style="flex: 0 0 40%;">
+                    <h2> Schéma MCD</h2>
+                    <div class="content-area">
+                        <div class="image-wrapper">
+                            <img src="mcd.png" alt="Schéma MCD" title="Schéma MCD">
+                            <div class="zoom-btn" title="Agrandir">🔍</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Viewer (Bottom Half) -->
+                <div class="card" style="flex: 1;">
+                    <h2>📘 Cours PDF</h2>
+                    <div class="content-area" style="padding: 0;">
+                        <embed src="Cours Mcd.pdf" type="application/pdf" class="pdf-embed">
+                    </div>
+                    <div class="btn-group">
+                        <a href="Cours Mcd.pdf" class="btn" target="_blank">Ouvrir en plein écran</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: PMA Image & SQL Code -->
+            <div class="column">
+                <!-- PMA Image (Top Half) -->
+                <div class="card" style="flex: 0 0 40%;">
+                    <h2>Capture PhpMyAdmin</h2>
+                    <div class="content-area">
+                        <div class="image-wrapper">
+                            <img src="pma.png" alt="Capture PhpMyAdmin">
+                            <div class="zoom-btn" title="Agrandir">🔍</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SQL Code (Bottom Half) -->
+                <div class="card" style="flex: 1;">
+                    <h2>💾 Code SQL</h2>
+                    <div class="content-area">
+                        <pre>-- phpMyAdmin SQL Dump
+-- version 5.2.3
+-- https://www.phpmyadmin.net/
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `guerre`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `affecte`
+--
+
+CREATE TABLE `affecte` (
+  `code_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `code_unite` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_affectation` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `batailles`
+--
+
+CREATE TABLE `batailles` (
+  `code_bataille` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `lieu` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_debut` date NOT NULL,
+  `date_fin` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blesse`
+--
+
+CREATE TABLE `blesse` (
+  `code_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `code_bataille` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `code_blessure` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_blessure` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blessures`
+--
+
+CREATE TABLE `blessures` (
+  `code_blessure` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `type_blessure` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grades`
+--
+
+CREATE TABLE `grades` (
+  `code_grade` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `intitule_grade` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `promu`
+--
+
+CREATE TABLE `promu` (
+  `code_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `code_grade` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_promotion` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `soldats`
+--
+
+CREATE TABLE `soldats` (
+  `code_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom_soldat` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `date_naissance` date NOT NULL,
+  `date_deces` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unites`
+--
+
+CREATE TABLE `unites` (
+  `code_unite` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nom_unite` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+ALTER TABLE `affecte`
+  ADD PRIMARY KEY (`code_soldat`,`code_unite`);
+
+ALTER TABLE `batailles`
+  ADD PRIMARY KEY (`code_bataille`);
+
+ALTER TABLE `blesse`
+  ADD PRIMARY KEY (`code_soldat`,`code_bataille`,`code_blessure`);
+
+ALTER TABLE `blessures`
+  ADD PRIMARY KEY (`code_blessure`);
+
+ALTER TABLE `grades`
+  ADD PRIMARY KEY (`code_grade`);
+
+ALTER TABLE `promu`
+  ADD PRIMARY KEY (`code_soldat`,`code_grade`),
+  ADD KEY `promu_code_grade_FK` (`code_grade`);
+
+ALTER TABLE `soldats`
+  ADD PRIMARY KEY (`code_soldat`);
+
+ALTER TABLE `unites`
+  ADD PRIMARY KEY (`code_unite`);
+
+--
+-- Constraints for dumped tables
+--
+
+ALTER TABLE `affecte`
+  ADD CONSTRAINT `affecte_code_soldat_FK` FOREIGN KEY (`code_soldat`) REFERENCES `soldats` (`code_soldat`);
+
+ALTER TABLE `blesse`
+  ADD CONSTRAINT `blesse_code_soldat_FK` FOREIGN KEY (`code_soldat`) REFERENCES `soldats` (`code_soldat`);
+
+ALTER TABLE `promu`
+  ADD CONSTRAINT `promu_code_grade_FK` FOREIGN KEY (`code_grade`) REFERENCES `grades` (`code_grade`),
+  ADD CONSTRAINT `promu_code_soldat_FK` FOREIGN KEY (`code_soldat`) REFERENCES `soldats` (`code_soldat`);
+COMMIT;
+</pre>
+                    </div>
+                    <div class="btn-group">
+                        <a href="guerre.sql" class="btn" download>Télécharger .sql</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">← Retour à l'accueil</a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
