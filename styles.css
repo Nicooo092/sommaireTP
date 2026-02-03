@@ -61,12 +61,20 @@ td[align="left"] {
     border-right: 1px solid #3a3a3a;
     font-weight: 500;
     color: #b0b0b0;
-    width: 40%;
+    width: 33%;
+}
+
+td[align="center"] {
+    border-right: 1px solid #3a3a3a;
+    background: #242424;
+    width: 33%;
+    vertical-align: top;
 }
 
 td[align="right"] {
     background: #242424;
-    width: 60%;
+    width: 33%;
+    vertical-align: top;
 }
 
 a {
